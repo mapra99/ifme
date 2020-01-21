@@ -6,9 +6,9 @@ module PagesHelper
   def print_contributors(contributors)
     contributors.map do |c|
       if c.is_a?(Hash) && c['name'].is_a?(String) && c['link'].is_a?(String)
-        link_to c['name'], c['link'], target: 'blank'
+        "<br>#{link_to(c['name'], c['link'], target: 'blank')}"
       end
-    end.to_sentence.html_safe
+    end.join.html_safe
   end
 
   def print_partners(data)
